@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Chuck Norris Facts API');
+});
+
 app.get('/api/chuck-norris', async (req, res) => {
   try {
     const response = await axios.get('https://api.chucknorris.io/jokes/random');
