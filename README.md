@@ -20,7 +20,7 @@ Este é um aplicativo simples que gera fatos divertidos sobre Chuck Norris usand
 3. Adicione sua chave de API do Google Translate no arquivo `ChuckNorrisFact.tsx`.
 4. Execute o aplicativo usando `npm start`.
 5. Escolha o idioma desejado no dropdown e veja o fato traduzido.
-Ou acesse o link
+6. Ou acesse o link https://carol-wabiszczewicz.github.io/chuck-norris-facts/
 
 ## Autor
 
