@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const cool = require('cool-ascii-faces');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
-
+const port = process.env.PORT || 5001;
 
 app.use(cors());
 
