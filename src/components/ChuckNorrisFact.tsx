@@ -8,10 +8,12 @@ const ChuckNorrisFact: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
   const [translatedFact, setTranslatedFact] = useState<string>('');
 
+  const API_BASE_URL = 'https://api.chucknorris.io/jokes/random';
+
   useEffect(() => {
     const fetchFact = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/chuck-norris');
+        const response = await axios.get(API_BASE_URL);
         setIconUrl(response.data.icon_url); 
         setFact(response.data.value);
         setCategory(response.data.categories.length > 0 ? response.data.categories[0] : 'Uncategorized');
