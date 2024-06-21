@@ -4,13 +4,15 @@ import axios from 'axios';
 const ChuckNorrisFact: React.FC = () => {
   const [fact, setFact] = useState<string>('');
   const [iconUrl, setIconUrl] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
 
   useEffect(() => {
     const fetchFact = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/chuck-norris');
-        setFact(response.data.value);
         setIconUrl(response.data.icon_url); 
+        setFact(response.data.value);
+        setCategory(response.data.categories.length > 0 ? response.data.categories[0] : 'Uncategorized');
       } catch (error) {
         console.error('Error fetching the Chuck Norris fact', error);
       }
@@ -20,10 +22,14 @@ const ChuckNorrisFact: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Chuck Norris Fact</h1>
-      {iconUrl && <img src={iconUrl} alt="Chuck Norris" className="mb-4" />}
-      <p>{fact}</p>
+    <div className="p-4 flex justify-center items-center min-h-screen">
+      <div className="max-w-md rounded overflow-hidden shadow-lg p-4 bg-white">
+        {iconUrl && <img src={iconUrl} alt="Chuck Norris" className="w-full rounded-t" />}
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">{category}</div>
+          <p className="text-gray-700 text-base">{fact}</p>
+        </div>
+      </div>
     </div>
   );
 };
