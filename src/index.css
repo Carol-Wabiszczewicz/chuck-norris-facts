@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes grad-move {
+    0% { background-position: 0 50%}
+    50% { background-position: 100% 50%}
+    100% { background-position: 0 50%}
+  }
+  
+  @keyframes rad-move {
+    0%{ border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    10%{ border-radius: 53% 47% 33% 67% / 60% 30% 70% 40%; }
+    20%{ border-radius: 71% 29% 38% 62% / 72% 48% 52% 28%; }
+    30%{ border-radius: 41% 59% 45% 55% / 33% 56% 44% 67%; }
+    40%{ border-radius: 55% 45% 67% 33% / 77% 48% 52% 23%; }
+    50%{ border-radius: 44% 56% 22% 78% / 31% 74% 26% 69%; }
+    60%{ border-radius: 46% 54% 48% 52% / 61% 59% 41% 39%; }
+    70%{ border-radius: 44% 56% 60% 40% / 63% 36% 64% 37%; }
+    80%{ border-radius: 20% 80% 45% 55% / 31% 79% 21% 69%; }
+    90%{ border-radius: 66% 34% 57% 43% / 49% 51% 49% 51%; }
+    100%{ border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  }
+  
+  :root {
+    background: linear-gradient(
+        -225deg, 
+        #ffe29f 0%, 
+        #ffa99f 50%, 
+        #ff719a 100%);
+  }
+  
+  #container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 2.25rem;
+      line-height: 2.35rem;
+      letter-spacing: .05rem;
+    color: #FFFFFF;
+  }
+  
+  #box {
+    position:absolute;
+    height: 380px;
+    width: 380px;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  #shape {
+    position:absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+          to right, 
+          #e5517f, 
+          #fced78);
+      background-size: 1000%;
+      background-repeat: no-repeat;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    opacity: .6;
+      box-shadow: 7px 10px 38px 4px rgba(0,0,0,0.2);
+      animation: 
+          grad-move 60s linear infinite, 
+      rad-move 30s linear infinite;
+  }
+  
+  #shape:nth-child(1) {
+    transform: rotate(60deg);
+    animation-delay: .5s;
+  }
+  
+  #shape:nth-child(2) {
+    transform: rotate(120deg);
+    animation-delay: 1s;
+  }
+  
